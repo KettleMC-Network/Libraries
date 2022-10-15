@@ -8,7 +8,10 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 compileJava.options.encoding = 'UTF-8'
 
-version = "1.0.0-RELEASE"
+// First number indicates breaking changes (removals etc.)
+// Second number indicates non-breaking changes (new libraries etc.)
+// Third number indicates bug fixes or small updates
+version = "1.1.0-RELEASE"
 
 sourceSets {
     main {
@@ -54,6 +57,10 @@ repositories {
     maven {
         url 'https://repo.varoplugin.de/repository/maven-public/'
     }
+
+    maven {
+        url 'https://nexus.velocitypowered.com/repository/maven-public/'
+    }
 }
 
 configurations {
@@ -65,11 +72,17 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.2")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.7.2")
 
-    this.addModularCompile('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT', 'spigot', false)
+    // Internal Libraries
     this.addModularInternal('com.googlecode.json-simple:json-simple:1.1.1', 'gson', false)
     this.addModularInternal('net.dv8tion:JDA:5.0.0-alpha.4', 'jda', false)
 	this.addModularInternal('com.github.CuukyOfficial:CFW:master-SNAPSHOT', 'CFW', true)
     this.addModularInternal('com.github.almighty-satan:jo2sql:1.2.2', 'jo2sql', true)
+    this.addModularInternal('net.kyori:adventure-text-minimessage:4.11.0', 'minimessages', false)
+
+    // Velocity + Spigot Support
+    annotationProcessor 'com.velocitypowered:velocity-api:3.0.1'
+    this.addModularCompile("com.velocitypowered:velocity-api:3.0.1", "velocity", true)
+    this.addModularCompile('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT', 'spigot', true)
 }
 
 boolean checkLib(String filePath) {
@@ -110,7 +123,7 @@ jar {
 processResources {
 	duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from (sourceSets.main.resources.srcDirs) {
-        filter ReplaceTokens, tokens: [name: "Libraries"]
+        filter ReplaceTokens, tokens: [name: "LibrariesBukkit"]
         filter ReplaceTokens, tokens: [version: version]
         filter ReplaceTokens, tokens: [author: "KettleMC"]
         filter ReplaceTokens, tokens: [main: "net.kettlemc.libraries.Libraries"]
