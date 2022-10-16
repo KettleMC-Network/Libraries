@@ -6,6 +6,9 @@
  - [GSON](https://github.com/google/gson) by Google
  - [J2SQL](https://github.com/Almighty-Satan/JO2SQL) by Almighty Satan
  - [Minimessages](https://github.com/KyoriPowered/adventure) by KyoriPowered
+ - [Konfiguration](https://github.com/KettleMC-Network/Konfiguration) by KettleMC
+ - OJDBC
+ - MySQL-Java-Connector
 
 This repository <b><u>does not</u></b> contain any libraries, only the setup for creating the jar.
 

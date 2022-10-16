@@ -10,7 +10,7 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
-@Plugin(id = "libraries", name = "Libraries", authors = "KettleMC", version = "1.2.0")
+@Plugin(id = "libraries", name = "Libraries", authors = "KettleMC", version = "1.3.0")
 public class LibrariesVelocity {
 
     private final ProxyServer server;
