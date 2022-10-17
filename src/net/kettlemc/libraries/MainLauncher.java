@@ -1,4 +1,4 @@
-package net.kettlemc.plugin;
+package net.kettlemc.libraries;
 
 import javax.swing.JOptionPane;
 

@@ -1,4 +1,4 @@
-package net.kettlemc.plugin;
+package net.kettlemc.libraries;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
@@ -10,7 +10,7 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import java.nio.file.Path;
 import java.util.logging.Logger;
 
-@Plugin(id = "libraries", name = "Libraries", authors = "KettleMC", version = "1.3.0")
+@Plugin(id = "libraries", name = "Libraries", authors = "KettleMC", version = "1.3.2")
 public class LibrariesVelocity {
 
     private final ProxyServer server;

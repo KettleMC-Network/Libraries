@@ -1,4 +1,4 @@
-package net.kettlemc.plugin;
+package net.kettlemc.libraries;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
